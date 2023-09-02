@@ -5,15 +5,15 @@ The first version of the tool was worked in the https://github.com/TatyPerson/Py
 
 # User manual
 
-To run the analysis you must first have the MIT App Inventor projects you want to analyze in a specific directory. Let's call this directory "projects". Then, to execute the BlockyMining tool to need to do the following command in the terminal:
+To run the analysis you must first have the MIT App Inventor projects you want to analyze in a specific directory. Let's call this directory "projects". Then, to launch the BlockyMining tool analysis to need to execute the following command in the terminal:
 
 ```python BlockyMining.py --source=appinventor --database=none --path=/projects```
 
-In this case, after running the analysis, a .csv file will be generated in the same directory with the results of applying the metrics implemented in BlockyMining on the given set of MIT App Inventor projects.
+In this case, after running the analysis, a .csv file will be generated in the "projects" directory with the results of applying the metrics implemented in BlockyMining on the given set of MIT App Inventor projects.
 
 If you need to save the data in a MySQL database you should edit the "ConfigurationParameters.cfg" file to add the parameters related to the MySQL database connection: host, user, password and the database name.
 
-For example:
+Below, you can see an ConfigurationParameters.cfg example file:
 
 ```
 [MYSQL_DATABASE]
@@ -23,7 +23,7 @@ MYSQL_PASSWORD = password
 MYSQL_DATABASE = BlockyMiningDatabase
 ```
 
-And then execute the command in the terminal as follows:
+Finally, you can launch the analysis executing the next command in the terminal:
 
 ```python BlockyMining.py --source=appinventor --database=mysql --path=/projects```
 
