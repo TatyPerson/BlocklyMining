@@ -7,7 +7,7 @@ The first version of the tool was worked in the https://github.com/TatyPerson/Py
 
 To run the analysis you must first have the MIT App Inventor projects you want to analyze in a specific directory. Let's call this directory "projects". Then, to execute the BlockyMining tool to need to do the following command in the terminal:
 
-python BlockyMining.py --source=appinventor --database=none --path=/projects
+```python BlockyMining.py --source=appinventor --database=none --path=/projects```
 
 In this case, after running the analysis, a .csv file will be generated in the same directory with the results of applying the metrics implemented in BlockyMining on the given set of MIT App Inventor projects.
 
