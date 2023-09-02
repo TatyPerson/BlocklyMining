@@ -13,12 +13,14 @@ In this case, after running the analysis, a .csv file will be generated in the s
 
 If you need to save the data in a MySQL database you should edit the "ConfigurationParameters.cfg" file to add the parameters related to the MySQL database connection: host, user, password and the database name.
 
+For example:
+
 ```
 [MYSQL_DATABASE]
-MYSQL_HOST = ${MYSQL_HOST}
-MYSQL_USER = ${MYSQL_USER}
-MYSQL_PASSWORD = ${MYSQL_PASSWORD}
-MYSQL_DATABASE = ${MYSQL_DATABASE}
+MYSQL_HOST = localhost
+MYSQL_USER = user
+MYSQL_PASSWORD = password
+MYSQL_DATABASE = BlockyMiningDatabase
 ```
 
 And then execute the command in the terminal as follows:
