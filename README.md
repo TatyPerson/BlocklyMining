@@ -11,7 +11,7 @@ To run the analysis you must first have the MIT App Inventor projects you want t
 
 In this case, after running the analysis, a .csv file will be generated in the "projects" directory with the results of applying the metrics implemented in BlockyMining on the given set of MIT App Inventor projects.
 
-If you need to save the data in a MySQL database you must create the database by importing the "BlockyMiningDatabase.sql" and then, you should edit the "ConfigurationParameters.cfg" file to add the parameters related to the MySQL database connection: host, user, password and the database name.
+If you need to save the data in a MySQL database you must create the database by importing the [BlockyMiningDatabase.sql]([https://www.genome.gov/](https://github.com/TatyPerson/BlockyMining/blob/main/database-schema/BlockyMiningDatabase.sql) and then, you should edit the [ConfigurationParameters.cfg]([https://www.genome.gov/]([https://github.com/TatyPerson/BlockyMining/blob/main/database-schema/BlockyMiningDatabase.sql](https://github.com/TatyPerson/BlockyMining/blob/main/source/ConfigurationParameters.cfg) file to add the parameters related to the MySQL database connection: host, user, password and the database name.
 
 Below, you can see an ConfigurationParameters.cfg example file:
 
