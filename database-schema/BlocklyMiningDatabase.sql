@@ -6,7 +6,7 @@
 # https://github.com/sequelpro/sequelpro
 #
 # Host: 127.0.0.1 (MySQL 5.7.23)
-# Base de datos: BlockyMiningDatabase
+# Base de datos: BlocklyMiningDatabase
 # Tiempo de Generación: 2023-09-02 15:50:42 +0000
 # ************************************************************
 
