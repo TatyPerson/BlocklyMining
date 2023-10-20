@@ -1,5 +1,5 @@
-import mysql.connector
 from DataBaseAPI import DataBaseAPI
+import mysql.connector
 import configparser
 
 class MySQLDataBase(DataBaseAPI):

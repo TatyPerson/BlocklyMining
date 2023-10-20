@@ -1,11 +1,10 @@
 from FileReaderAPI import FileReaderAPI
-from xml.dom import minidom
-import numpy as np
-import os
-from datetime import datetime
-from csv import writer
+from CSVFileWriter import CSVFileWriter
 from AppInventorMetrics import AppInventorMetrics
 from MySQLDataBase import MySQLDataBase
+from xml.dom import minidom
+import os
+from datetime import datetime
 import sys, os
 import re
 import configparser
@@ -77,7 +76,7 @@ class AppInventorFileReader(FileReaderAPI):
 		currentDate = datetime.today().strftime('%d%m%Y')
 		csvFile = f'BlockyMining_AppInventor_{currentDate}_{csvNumberFile}.csv'
 
-		np.savetxt(csvFile, [p for p in zip(
+		columns = [p for p in zip(
 		  ProjectID,
 		  ProjectName,
 		  AppName,
@@ -135,8 +134,9 @@ class AppInventorFileReader(FileReaderAPI):
 		  NumberOfSnakeCaseVariables,
 		  NumberOfSnakeCaseDefinedFunctionalBlocks,
 		  NumberOfNoneCaseVariables,
-		  NumberOfNoneCaseDefinedFunctionalBlocks)], 
-		delimiter=',', fmt='%s')
+		  NumberOfNoneCaseDefinedFunctionalBlocks)]
+
+		CSVFileWriter.createFile(csvFile, columns)
 
 		currentLine = 0
 		projectID = ""
@@ -218,7 +218,7 @@ class AppInventorFileReader(FileReaderAPI):
 		        if database == "mysql":
 		        	MySQLDataBase.insertProject(projectID, projectName, database)
 
-		        print('Writing CSV file..')
+		        print('Writing in CSV file..')
 
 		        if numberOfAnalyzedBlocks > 0:
 		          percentageDuplicateBlocks = round(((numberOfDuplicateBlocks * 100) / numberOfAnalyzedBlocks), 2)
@@ -288,14 +288,13 @@ class AppInventorFileReader(FileReaderAPI):
 		        numberOfNoneCaseVariables,
 		        numberOfNoneCaseDefinedFunctionalBlocks]
 
-		        with open(csvFile, 'a+', newline='') as writerObj:
-		          csvWriter = writer(writerObj)
-		          csvWriter.writerow(newRow)
-		          currentLine = currentLine + 1
-		          if(currentLine > 500000):
-		            currentLine = 0
-		            csvNumberFile = csvNumberFile + 1
-		            csvFile = f'BlockyMining_AppInventor_{currentDate}_{csvNumberFile}.csv'
+		        CSVFileWriter.writeLine(csvFile, newRow)
+
+		        currentLine = currentLine + 1
+		        if(currentLine > 500000):
+		        	currentLine = 0
+		        	csvNumberFile = csvNumberFile + 1
+		        	csvFile = f'BlockyMining_AppInventor_{currentDate}_{csvNumberFile}.csv'
 
 		        #Resetting all variables to get the global results by project
 		        numberOfScreens = 0
@@ -716,11 +715,10 @@ class AppInventorFileReader(FileReaderAPI):
 		    if database == "mysql":
 		    	MySQLDataBase.insertProject(projectID, projectName, database)
 
-		    with open(csvFile, 'a+', newline='') as writerObj:
-		      csvWriter = writer(writerObj)
-		      csvWriter.writerow(newRow)
-		      currentLine = currentLine + 1
-		      if(currentLine > 500000):
+		    CSVFileWriter.writeLine(csvFile, newRow)
+
+		    currentLine = currentLine + 1
+		    if(currentLine > 500000):
 		        currentLine = 0
 		        csvNumberFile = csvNumberFile + 1
 		        csvFile = f'BlockyMining_AppInventor_{currentDate}_{csvNumberFile}.csv'

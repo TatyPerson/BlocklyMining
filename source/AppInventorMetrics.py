@@ -1,7 +1,7 @@
-import re
-from xml.dom.minidom import parseString
 from MySQLDataBase import MySQLDataBase
 from MetricsAPI import MetricsAPI
+import re
+from xml.dom.minidom import parseString
 
 userInterfaceComponents = ['Button', 'CheckBox', 'DatePicker', 'Image', 'Label', 'ListPicker', 'ListView', 'Notifier', 'PasswordTextBox', 'Slider', 'Spinner', 'Switch', 'TextBox', 'TimePicker', 'WebViewer']
 layoutComponents = ['HorizontalArrangement', 'HorizontalScrollArrangement', 'TableArrangement', 'VerticalArrangement', 'VerticalScrollArrangement']
