@@ -274,7 +274,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(snakeRegularExp, varName) == None and re.fullmatch(pascalRegularExp, varName) == None and re.fullmatch(camelCaseRegularExp, varName) == None:
                                 noneCaseFunctionalBlocks = noneCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "NoneCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "NumberOfNoneCaseDefinedFunctionalBlocks", database)
                 for elem2 in elem.getElementsByTagName('title'):
                     if elem2.attributes['name'].value == 'NAME':
                         if elem2.firstChild != None:
@@ -282,7 +282,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(snakeRegularExp, varName) == None and re.fullmatch(pascalRegularExp, varName) == None and re.fullmatch(camelCaseRegularExp, varName) == None:
                                 noneCaseFunctionalBlocks = noneCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "NoneCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "NumberOfNoneCaseDefinedFunctionalBlocks", database)
 
         for elem in blocks:
             if elem.attributes['type'].value == 'procedures_defnoreturn':
@@ -293,7 +293,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(snakeRegularExp, varName) == None and re.fullmatch(pascalRegularExp, varName) == None and re.fullmatch(camelCaseRegularExp, varName) == None:
                                 noneCaseFunctionalBlocks = noneCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "NoneCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "NumberOfNoneCaseDefinedFunctionalBlocks", database)
                 for elem2 in elem.getElementsByTagName('title'):
                     if elem2.attributes['name'].value == 'NAME':
                         if elem2.firstChild != None:
@@ -301,7 +301,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(snakeRegularExp, varName) == None and re.fullmatch(pascalRegularExp, varName) == None and re.fullmatch(camelCaseRegularExp, varName) == None:
                                 noneCaseFunctionalBlocks = noneCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "NoneCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "NumberOfNoneCaseDefinedFunctionalBlocks", database)
 
         numberOfNoneCaseDefinedFunctionalBlocks = numberOfNoneCaseDefinedFunctionalBlocks + noneCaseFunctionalBlocks
         return numberOfNoneCaseDefinedFunctionalBlocks
@@ -319,7 +319,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(snakeRegularExp, varName) == None and re.fullmatch(pascalRegularExp, varName) == None and re.fullmatch(camelCaseRegularExp, varName) == None:
                                 noneCaseVariables = noneCaseVariables + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "global_declaration", "NoneCaseVariables", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "global_declaration", "NumberOfNoneCaseVariables", database)
 
         for elem in blocks:
             if elem.attributes['type'].value == 'local_declaration_statement':
@@ -327,7 +327,7 @@ class AppInventorMetrics(MetricsAPI):
                     varName = elem2.attributes['name'].value
                     if re.fullmatch(snakeRegularExp, varName) == None and re.fullmatch(pascalRegularExp, varName) == None and re.fullmatch(camelCaseRegularExp, varName) == None:
                         noneCaseVariables = noneCaseVariables + 1
-                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_statement", "NoneCaseVariables", database)
+                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_statement", "NumberOfNoneCaseVariables", database)
                     break
 
         for elem in blocks:
@@ -336,7 +336,7 @@ class AppInventorMetrics(MetricsAPI):
                     varName = elem2.attributes['name'].value
                     if re.fullmatch(snakeRegularExp, varName) == None and re.fullmatch(pascalRegularExp, varName) == None and re.fullmatch(camelCaseRegularExp, varName) == None:
                         noneCaseVariables = noneCaseVariables + 1
-                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_expression", "NoneCaseVariables", database)
+                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_expression", "NumberOfNoneCaseVariables", database)
                     break
 
         numberOfNoneCaseVariables = numberOfNoneCaseVariables + noneCaseVariables
@@ -355,7 +355,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(snakeRegularExp, varName) != None:
                                 snakeCaseFunctionalBlocks = snakeCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "SnakeCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "NumberOfSnakeCaseDefinedFunctionalBlocks", database)
                 for elem2 in elem.getElementsByTagName('title'):
                     if elem2.attributes['name'].value == 'NAME':
                         if elem2.firstChild != None:
@@ -363,7 +363,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(snakeRegularExp, varName) != None:
                                 snakeCaseFunctionalBlocks = snakeCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "SnakeCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "NumberOfSnakeCaseDefinedFunctionalBlocks", database)
 
         for elem in blocks:
             if elem.attributes['type'].value == 'procedures_defnoreturn':
@@ -374,7 +374,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(snakeRegularExp, varName) != None:
                                 snakeCaseFunctionalBlocks = snakeCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "SnakeCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "NumberOfSnakeCaseDefinedFunctionalBlocks", database)
                 for elem2 in elem.getElementsByTagName('title'):
                     if elem2.attributes['name'].value == 'NAME':
                         if elem2.firstChild != None:
@@ -382,7 +382,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(snakeRegularExp, varName) != None:
                                 snakeCaseFunctionalBlocks = snakeCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "SnakeCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "NumberOfSnakeCaseDefinedFunctionalBlocks", database)
 
         numberOfSnakeCaseDefinedFunctionalBlocks = numberOfSnakeCaseDefinedFunctionalBlocks + snakeCaseFunctionalBlocks
         return numberOfSnakeCaseDefinedFunctionalBlocks
@@ -400,7 +400,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(snakeRegularExp, varName) != None:
                                 snakeCaseVariables = snakeCaseVariables + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "global_declaration", "SnakeCaseVariables", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "global_declaration", "NumberOfSnakeCaseVariables", database)
 
         for elem in blocks:
             if elem.attributes['type'].value == 'local_declaration_statement':
@@ -408,7 +408,7 @@ class AppInventorMetrics(MetricsAPI):
                     varName = elem2.attributes['name'].value
                     if re.fullmatch(snakeRegularExp, varName) != None:
                         snakeCaseVariables = snakeCaseVariables + 1
-                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_statement", "SnakeCaseVariables", database)
+                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_statement", "NumberOfSnakeCaseVariables", database)
                     break
 
         for elem in blocks:
@@ -417,7 +417,7 @@ class AppInventorMetrics(MetricsAPI):
                     varName = elem2.attributes['name'].value
                     if re.fullmatch(snakeRegularExp, varName) != None:
                         snakeCaseVariables = snakeCaseVariables + 1
-                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_expression", "SnakeCaseVariables", database)
+                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_expression", "NumberOfSnakeCaseVariables", database)
                     break
 
         numberOfSnakeCaseVariables = numberOfSnakeCaseVariables + snakeCaseVariables
@@ -436,7 +436,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(pascalRegularExp, varName) != None:
                                 pascalCaseFunctionalBlocks = pascalCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "PascalCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "NumberOfPascalCaseDefinedFunctionalBlocks", database)
                 for elem2 in elem.getElementsByTagName('title'):
                     if elem2.attributes['name'].value == 'NAME':
                         if elem2.firstChild != None:
@@ -444,7 +444,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(pascalRegularExp, varName) != None:
                                 pascalCaseFunctionalBlocks = pascalCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "PascalCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "NumberOfPascalCaseDefinedFunctionalBlocks", database)
 
         for elem in blocks:
             if elem.attributes['type'].value == 'procedures_defnoreturn':
@@ -455,7 +455,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(pascalRegularExp, varName) != None:
                                 pascalCaseFunctionalBlocks = pascalCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "PascalCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "NumberOfPascalCaseDefinedFunctionalBlocks", database)
                 for elem2 in elem.getElementsByTagName('title'):
                     if elem2.attributes['name'].value == 'NAME':
                         if elem2.firstChild != None:
@@ -463,7 +463,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(pascalRegularExp, varName) != None:
                                 pascalCaseFunctionalBlocks = pascalCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "PascalCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "NumberOfPascalCaseDefinedFunctionalBlocks", database)
 
         numberOfPascalCaseDefinedFunctionalBlocks = numberOfPascalCaseDefinedFunctionalBlocks + pascalCaseFunctionalBlocks
         return numberOfPascalCaseDefinedFunctionalBlocks
@@ -481,7 +481,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(pascalRegularExp, varName) != None:
                                 pascalCaseVariables = pascalCaseVariables + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "global_declaration", "PascalCaseVariables", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "global_declaration", "NumberOfPascalCaseVariables", database)
 
         for elem in blocks:
             if elem.attributes['type'].value == 'local_declaration_statement':
@@ -489,7 +489,7 @@ class AppInventorMetrics(MetricsAPI):
                     varName = elem2.attributes['name'].value
                     if re.fullmatch(pascalRegularExp, varName) != None:
                         pascalCaseVariables = pascalCaseVariables + 1
-                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_statement", "PascalCaseVariables", database)
+                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_statement", "NumberOfPascalCaseVariables", database)
                     break
 
         for elem in blocks:
@@ -498,7 +498,7 @@ class AppInventorMetrics(MetricsAPI):
                     varName = elem2.attributes['name'].value
                     if re.fullmatch(pascalRegularExp, varName) != None:
                         pascalCaseVariables = pascalCaseVariables + 1
-                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_expression", "PascalCaseVariables", database)
+                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_expression", "NumberOfPascalCaseVariables", database)
                     break
 
         numberOfPascalCaseVariables = numberOfPascalCaseVariables + pascalCaseVariables
@@ -516,14 +516,14 @@ class AppInventorMetrics(MetricsAPI):
                             varName = elem2.firstChild.data
                             if re.fullmatch(camelCaseRegularExp, varName) != None:
                                 camelCaseFunctionalBlocks = camelCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "CamelCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "NumberOfCamelCaseDefinedFunctionalBlocks", database)
                 for elem2 in elem.getElementsByTagName('title'):
                     if elem2.attributes['name'].value == 'NAME':
                         if elem2.firstChild != None:
                             varName = elem2.firstChild.data
                             if re.fullmatch(camelCaseRegularExp, varName) != None:
                                 camelCaseFunctionalBlocks = camelCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "CamelCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "NumberOfCamelCaseDefinedFunctionalBlocks", database)
 
         for elem in blocks:
             if elem.attributes['type'].value == 'procedures_defnoreturn':
@@ -533,14 +533,14 @@ class AppInventorMetrics(MetricsAPI):
                             varName = elem2.firstChild.data
                             if re.fullmatch(camelCaseRegularExp, varName) != None:
                                 camelCaseFunctionalBlocks = camelCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "CamelCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "NumberOfCamelCaseDefinedFunctionalBlocks", database)
                 for elem2 in elem.getElementsByTagName('title'):
                     if elem2.attributes['name'].value == 'NAME':
                         if elem2.firstChild != None:
                             varName = elem2.firstChild.data
                             if re.fullmatch(camelCaseRegularExp, varName) != None:
                                 camelCaseFunctionalBlocks = camelCaseFunctionalBlocks + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "CamelCaseDefinedFunctionalBlocks", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "NumberOfCamelCaseDefinedFunctionalBlocks", database)
 
         numberOfCamelCaseDefinedFunctionalBlocks = numberOfCamelCaseDefinedFunctionalBlocks + camelCaseFunctionalBlocks
         return numberOfCamelCaseDefinedFunctionalBlocks
@@ -558,7 +558,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                             if re.fullmatch(camelCaseRegularExp, varName) != None:
                                 camelCaseVariables = camelCaseVariables + 1
-                                MySQLDataBase.insertIssue(projectID, screenName, varName, "global_declaration", "CamelCaseVariables", database)
+                                MySQLDataBase.insertIssue(projectID, screenName, varName, "global_declaration", "NumberOfCamelCaseVariables", database)
 
         for elem in blocks:
             if elem.attributes['type'].value == 'local_declaration_statement':
@@ -566,7 +566,7 @@ class AppInventorMetrics(MetricsAPI):
                     varName = elem2.attributes['name'].value
                     if re.fullmatch(camelCaseRegularExp, varName) != None:
                         camelCaseVariables = camelCaseVariables + 1
-                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_statement", "CamelCaseVariables", database)
+                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_statement", "NumberOfCamelCaseVariables", database)
                     break
 
         for elem in blocks:
@@ -575,7 +575,7 @@ class AppInventorMetrics(MetricsAPI):
                     varName = elem2.attributes['name'].value
                     if re.fullmatch(camelCaseRegularExp, varName) != None:
                         camelCaseVariables = camelCaseVariables + 1
-                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_expression", "CamelCaseVariables", database)
+                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_expression", "NumberOfCamelCaseVariables", database)
                     break
 
         numberOfCamelCaseVariables = numberOfCamelCaseVariables + camelCaseVariables
@@ -645,7 +645,7 @@ class AppInventorMetrics(MetricsAPI):
                 if elem not in notifiedVars:
                     notifiedVars.append(elem)
                     numberOfVariablesInConditionNotUpdated = numberOfVariablesInConditionNotUpdated + 1
-                    MySQLDataBase.insertIssue(projectID, screenName, elem, "lexical_variable_get", "VariablesInConditionNotUpdated", database)
+                    MySQLDataBase.insertIssue(projectID, screenName, elem, "lexical_variable_get", "NumberOfVariablesInConditionNotUpdated", database)
 
         return numberOfVariablesInConditionNotUpdated
 
@@ -662,7 +662,7 @@ class AppInventorMetrics(MetricsAPI):
 
                 if hasCondition == False:
                     whileBlocksWithoutCondition = whileBlocksWithoutCondition + 1
-                    MySQLDataBase.insertIssue(projectID, screenName, elem.attributes['id'].value, "controls_while", "WhileLoopsWithoutCondition", database)
+                    MySQLDataBase.insertIssue(projectID, screenName, elem.attributes['id'].value, "controls_while", "NumberOfWhileLoopsWithoutCondition", database)
                 hasCondition = False
 
         numberOfWhileLoopsWithoutCondition = numberOfWhileLoopsWithoutCondition + whileBlocksWithoutCondition
@@ -686,7 +686,7 @@ class AppInventorMetrics(MetricsAPI):
 
                 if hasReturn == False:
                     functionalBlocksWithoutReturn = functionalBlocksWithoutReturn + 1
-                    MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "FunctionalBlocksWithoutReturn", database)
+                    MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "NumberOfFunctionalBlocksWithoutReturn", database)
                 hasReturn = False
 
         numberOfFunctionalBlocksWithoutReturn = numberOfFunctionalBlocksWithoutReturn + functionalBlocksWithoutReturn
@@ -759,11 +759,11 @@ class AppInventorMetrics(MetricsAPI):
 
         for procedure in proceduresDefReturn:
             if procedure not in usedFuncionalBlocks:
-                MySQLDataBase.insertIssue(projectID, screenName, procedure, "procedures_defreturn", "DefinedFunctionalBlocksNotUsed", database)
+                MySQLDataBase.insertIssue(projectID, screenName, procedure, "procedures_defreturn", "NumberOfDefinedFunctionalBlocksNotUsed", database)
 
         for procedure in proceduresDefNoReturn:
             if procedure not in usedFuncionalBlocks:
-                MySQLDataBase.insertIssue(projectID, screenName, procedure, "procedures_defnoreturn", "DefinedFunctionalBlocksNotUsed", database)
+                MySQLDataBase.insertIssue(projectID, screenName, procedure, "procedures_defnoreturn", "NumberOfDefinedFunctionalBlocksNotUsed", database)
 
 
         return numberOfDefinedFunctionalBlocksNotUsed
@@ -805,7 +805,7 @@ class AppInventorMetrics(MetricsAPI):
                                         if elem not in reportedInfiniteLoops:
                                             reportedInfiniteLoops.append(elem)
                                             infiniteLoops = infiniteLoops + 1
-                                            MySQLDataBase.insertIssue(projectID, screenName, elem.attributes['id'].value, "controls_while", "InfiniteLoops", database)
+                                            MySQLDataBase.insertIssue(projectID, screenName, elem.attributes['id'].value, "controls_while", "NumberOfInfiniteLoops", database)
 
         #check loops with type while(a = a)
         for elem in blocks:
@@ -843,7 +843,7 @@ class AppInventorMetrics(MetricsAPI):
                         if elem not in reportedInfiniteLoops:
                             reportedInfiniteLoops.append(elem)
                             infiniteLoops = infiniteLoops + 1
-                            MySQLDataBase.insertIssue(projectID, screenName, elem.attributes['id'].value, "controls_while", "InfiniteLoops", database)
+                            MySQLDataBase.insertIssue(projectID, screenName, elem.attributes['id'].value, "controls_while", "NumberOfInfiniteLoops", database)
 
         numberOfInfiniteLoops = numberOfInfiniteLoops + infiniteLoops
         return numberOfInfiniteLoops
@@ -861,7 +861,7 @@ class AppInventorMetrics(MetricsAPI):
                             varName = value.replace('global ', '')
                 if len(elem.getElementsByTagName('value')) == 0:
                     varNotInitialized = varNotInitialized + 1
-                    MySQLDataBase.insertIssue(projectID, screenName, varName, "global_declaration", "VariablesNotInitialized", database)
+                    MySQLDataBase.insertIssue(projectID, screenName, varName, "global_declaration", "NumberOfVariablesNotInitialized", database)
 
         for elem in blocks:
             if elem.attributes['type'].value == 'local_declaration_statement':
@@ -869,7 +869,7 @@ class AppInventorMetrics(MetricsAPI):
                     varName = elem2.attributes['name'].value
                     if len(elem.getElementsByTagName('value')) == 0:
                         varNotInitialized = varNotInitialized + 1
-                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_statement", "VariablesNotInitialized", database)
+                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_statement", "NumberOfVariablesNotInitialized", database)
 
         for elem in blocks:
             if elem.attributes['type'].value == 'local_declaration_expression':
@@ -877,7 +877,7 @@ class AppInventorMetrics(MetricsAPI):
                     varName = elem2.attributes['name'].value
                     if len(elem.getElementsByTagName('value')) == 0:
                         varNotInitialized = varNotInitialized + 1
-                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_expression", "VariablesNotInitialized", database)
+                        MySQLDataBase.insertIssue(projectID, screenName, varName, "local_declaration_expression", "NumberOfVariablesNotInitialized", database)
 
         numberOfVariablesNotInitialized = numberOfVariablesNotInitialized + varNotInitialized
         return numberOfVariablesNotInitialized
@@ -932,7 +932,7 @@ class AppInventorMetrics(MetricsAPI):
                                                         if elem not in reportedIndexOutOfRange:
                                                             reportedIndexOutOfRange.append(elem)
                                                             indexOutOfRange = indexOutOfRange + 1
-                                                            MySQLDataBase.insertIssue(projectID, screenName, elem.attributes['id'].value, "lists_select_item", "IndexOutOfRange", database)
+                                                            MySQLDataBase.insertIssue(projectID, screenName, elem.attributes['id'].value, "lists_select_item", "NumberOfIndexOutOfRange", database)
 
         numberOfIndexOutOfRange = numberOfIndexOutOfRange + indexOutOfRange
         return numberOfIndexOutOfRange
@@ -1042,7 +1042,6 @@ class AppInventorMetrics(MetricsAPI):
 
     def getNumberOfScreensError(numberOfScreens, projectID, screenName, database):
         if numberOfScreens > 10:
-            MySQLDataBase.insertIssue(projectID, screenName, screenName, "Screen", "NumberOfScreensError", database)
             return 1
         else:
             return 0
@@ -1193,7 +1192,7 @@ class AppInventorMetrics(MetricsAPI):
                                 if elem2.firstChild != None:
                                     value = elem2.firstChild.data
                                     varName = value.replace('global ', '')
-                                    MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "FunctionsWithTooManyParameters", database)
+                                    MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defreturn", "NumberOfParametersErrors", database)
 
         for elem in blocks:
             if elem.hasAttribute('type'):
@@ -1205,7 +1204,7 @@ class AppInventorMetrics(MetricsAPI):
                                 if elem2.firstChild != None:
                                     value = elem2.firstChild.data
                                     varName = value.replace('global ', '')
-                                    MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "FunctionsWithTooManyParameters", database)
+                                    MySQLDataBase.insertIssue(projectID, screenName, varName, "procedures_defnoreturn", "NumberOfParametersErrors", database)
         return errorsNumberOfArguments
 
 
@@ -1370,7 +1369,7 @@ class AppInventorMetrics(MetricsAPI):
                                 if elem2.firstChild != None:
                                     value = elem2.firstChild.data
                                     varName = value.replace('global ', '')
-                                    MySQLDataBase.insertIssue(projectID, screenName, varName, elem.attributes['type'].value, "FunctionsWithTooManyBlocks", database)
+                                    MySQLDataBase.insertIssue(projectID, screenName, varName, elem.attributes['type'].value, "NumberOfFunctionsWithTooManyBlocks", database)
                     numberOfBlocks = 0  
 
         numberOfFunctionsWithTooManyBlocks = numberOfFunctionsWithTooManyBlocks + len(functionsWithTooManyBlocks) 
@@ -1389,7 +1388,7 @@ class AppInventorMetrics(MetricsAPI):
                                         if elem3.attributes['type'].value == 'controls_if': #second level
                                             if elem not in ifBlocksTooManyNested:
                                                 ifBlocksTooManyNested.append(elem)
-                                                MySQLDataBase.insertIssue(projectID, screenName, elem.attributes['id'].value, "controls_if", "IfBlocksTooManyNested", database)
+                                                MySQLDataBase.insertIssue(projectID, screenName, elem.attributes['id'].value, "controls_if", "NumberOfIfBlocksTooManyNested", database)
 
         return ifBlocksTooManyNested
 
