@@ -20,7 +20,18 @@ snakeRegularExp = r"^[a-zA-Z0-9]+(?:_[a-zA-Z0-9]+)+$"
 pascalRegularExp = r"^[A-Z][a-z0-9]+([A-Z][a-z0-9]+)+$"
 camelCaseRegularExp = r"^[a-z]+([A-Z][a-z0-9]+)+$"
 
+issueTypes = ["PercentageDuplicateBlocks", "NumberOfDefinedFunctionalBlocksNotUsed", "NumberOfFunctionsWithTooManyBlocks",
+"NameOfVariablesErrors", "NameOfFunctionsErrors", "NumberOfCamelCaseVariables", "NumberOfPascalCaseVariables", "NumberOfSnakeCaseVariables",
+"NumberOfNoneCaseVariables", "NumberOfCamelCaseDefinedFunctionalBlocks", "NumberOfPascalCaseDefinedFunctionalBlocks", "NumberOfSnakeCaseDefinedFunctionalBlocks",
+"NumberOfNoneCaseDefinedFunctionalBlocks", "VariablesNotUsed", "MagicNumbers", "NumberOfParametersErrors", "NumberOfIfBlocksTooManyNested",
+"PercentageComments", "NumberOfDivisionByZero", "NumberOfInfiniteLoops", "NumberOfVariablesNotInitialized", "NumberOfIndexOutOfRange",
+"NumberOfVariablesInConditionNotUpdated", "NumberOfFunctionalBlocksWithoutReturn", "NumberOfWhileLoopsWithoutCondition"]
+
 class AppInventorMetrics(MetricsAPI):
+
+    def storeIssueTypes(database):
+        MySQLDataBase.insertIssueType(issueTypes, database)
+
 
     def getNumberOfExperimentalBlocks(blocks, numberOfExperimentalBlocks):
         for elem in blocks:

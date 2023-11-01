@@ -15,3 +15,7 @@ class DataBaseAPI:
   def insertIssue(projectID, screenName, blockID, blockType, issueType, database):
     """Insert Issue in the database."""
     pass
+
+  def insertIssueType(issueTypes, database):
+    """Insert the Issue types in the database."""
+    pass

@@ -55,3 +55,15 @@ class MySQLDataBase(DataBaseAPI):
       mycursor.execute(sql, val)
 
       mydb.commit()
+
+
+  def insertIssueType(issueTypes, database):
+    if database == "mysql":
+      mydb = MySQLDataBase.openConnection()
+      mycursor = mydb.cursor()
+
+      for issueType in issueTypes:
+        sql = "INSERT INTO IssueType (issue_type) VALUES (%s)"
+        val = (issueType,)
+        mycursor.execute(sql, val)
+        mydb.commit()

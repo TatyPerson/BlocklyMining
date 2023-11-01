@@ -1,5 +1,9 @@
 class MetricsAPI:
 
+    def storeIssueTypes(database):
+        """Insert the existing Issue types in database."""
+        pass
+
     def getNumberOfExperimentalBlocks(blocks, numberOfExperimentalBlocks):
         """Get number of blocks of the Experimental category."""
         pass

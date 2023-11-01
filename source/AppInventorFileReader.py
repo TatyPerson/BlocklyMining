@@ -138,6 +138,8 @@ class AppInventorFileReader(FileReaderAPI):
 
 		CSVFileWriter.createFile(csvFile, columns)
 
+		AppInventorMetrics.storeIssueTypes(database)
+
 		currentLine = 0
 		projectID = ""
 		projectName = ""
