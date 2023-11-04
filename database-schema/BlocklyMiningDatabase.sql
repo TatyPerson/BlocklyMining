@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.23)
 # Base de datos: BlocklyMiningDatabase
-# Tiempo de Generación: 2023-09-02 15:50:42 +0000
+# Tiempo de Generación: 2023-11-04 10:50:16 +0000
 # ************************************************************
 
 
@@ -28,13 +28,27 @@ DROP TABLE IF EXISTS `Issue`;
 CREATE TABLE `Issue` (
   `id` int(100) unsigned NOT NULL AUTO_INCREMENT,
   `block_id` varchar(10000) NOT NULL DEFAULT '',
-  `issue_type` varchar(10000) NOT NULL DEFAULT '',
   `project_id` varchar(100) NOT NULL DEFAULT '',
   `screen_name` varchar(100) NOT NULL DEFAULT '',
   `block_type` varchar(100) NOT NULL DEFAULT '',
+  `issue_type` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `screen_id` (`project_id`,`screen_name`),
+  KEY `issue_type` (`issue_type`),
+  CONSTRAINT `issue_type` FOREIGN KEY (`issue_type`) REFERENCES `IssueType` (`issue_type`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `screen_id` FOREIGN KEY (`project_id`, `screen_name`) REFERENCES `Screen` (`project_id`, `name`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+# Volcado de tabla IssueType
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `IssueType`;
+
+CREATE TABLE `IssueType` (
+  `issue_type` varchar(100) NOT NULL DEFAULT '',
+  PRIMARY KEY (`issue_type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
