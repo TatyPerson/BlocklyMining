@@ -74,7 +74,7 @@ class AppInventorFileReader(FileReaderAPI):
 
 		csvNumberFile = 0
 		currentDate = datetime.today().strftime('%d%m%Y')
-		csvFile = f'BlockyMining_AppInventor_{currentDate}_{csvNumberFile}.csv'
+		csvFile = f'BlocklyMining_AppInventor_{currentDate}_{csvNumberFile}.csv'
 
 		columns = [p for p in zip(
 		  ProjectID,
@@ -296,7 +296,7 @@ class AppInventorFileReader(FileReaderAPI):
 		        if(currentLine > 500000):
 		        	currentLine = 0
 		        	csvNumberFile = csvNumberFile + 1
-		        	csvFile = f'BlockyMining_AppInventor_{currentDate}_{csvNumberFile}.csv'
+		        	csvFile = f'BlocklyMining_AppInventor_{currentDate}_{csvNumberFile}.csv'
 
 		        #Resetting all variables to get the global results by project
 		        numberOfScreens = 0
@@ -723,4 +723,4 @@ class AppInventorFileReader(FileReaderAPI):
 		    if(currentLine > 500000):
 		        currentLine = 0
 		        csvNumberFile = csvNumberFile + 1
-		        csvFile = f'BlockyMining_AppInventor_{currentDate}_{csvNumberFile}.csv'
+		        csvFile = f'BlocklyMining_AppInventor_{currentDate}_{csvNumberFile}.csv'
